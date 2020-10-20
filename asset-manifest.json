@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/house-things/static/css/main.5f361e03.chunk.css",
+    "main.js": "/house-things/static/js/main.40ecf776.chunk.js",
+    "main.js.map": "/house-things/static/js/main.40ecf776.chunk.js.map",
+    "runtime-main.js": "/house-things/static/js/runtime-main.c744bfca.js",
+    "runtime-main.js.map": "/house-things/static/js/runtime-main.c744bfca.js.map",
+    "static/js/2.9c8d1a69.chunk.js": "/house-things/static/js/2.9c8d1a69.chunk.js",
+    "static/js/2.9c8d1a69.chunk.js.map": "/house-things/static/js/2.9c8d1a69.chunk.js.map",
+    "index.html": "/house-things/index.html",
+    "precache-manifest.4aa373f2600fb004ce3b878e50c99b1d.js": "/house-things/precache-manifest.4aa373f2600fb004ce3b878e50c99b1d.js",
+    "service-worker.js": "/house-things/service-worker.js",
+    "static/css/main.5f361e03.chunk.css.map": "/house-things/static/css/main.5f361e03.chunk.css.map",
+    "static/js/2.9c8d1a69.chunk.js.LICENSE.txt": "/house-things/static/js/2.9c8d1a69.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/house-things/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c744bfca.js",
+    "static/js/2.9c8d1a69.chunk.js",
+    "static/css/main.5f361e03.chunk.css",
+    "static/js/main.40ecf776.chunk.js"
+  ]
+}
