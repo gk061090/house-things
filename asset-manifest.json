@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.js": "/house-things/static/js/main.ad894bf6.chunk.js",
-    "main.js.map": "/house-things/static/js/main.ad894bf6.chunk.js.map",
+    "main.js": "/house-things/static/js/main.0f9df06c.chunk.js",
+    "main.js.map": "/house-things/static/js/main.0f9df06c.chunk.js.map",
     "runtime-main.js": "/house-things/static/js/runtime-main.c744bfca.js",
     "runtime-main.js.map": "/house-things/static/js/runtime-main.c744bfca.js.map",
-    "static/js/2.768a648e.chunk.js": "/house-things/static/js/2.768a648e.chunk.js",
-    "static/js/2.768a648e.chunk.js.map": "/house-things/static/js/2.768a648e.chunk.js.map",
+    "static/js/2.5fb93447.chunk.js": "/house-things/static/js/2.5fb93447.chunk.js",
+    "static/js/2.5fb93447.chunk.js.map": "/house-things/static/js/2.5fb93447.chunk.js.map",
     "index.html": "/house-things/index.html",
-    "precache-manifest.59e0aeb760fc19f969d2477febd97560.js": "/house-things/precache-manifest.59e0aeb760fc19f969d2477febd97560.js",
+    "precache-manifest.af8700c0f85edcf15722198c3ded42f2.js": "/house-things/precache-manifest.af8700c0f85edcf15722198c3ded42f2.js",
     "service-worker.js": "/house-things/service-worker.js",
-    "static/js/2.768a648e.chunk.js.LICENSE.txt": "/house-things/static/js/2.768a648e.chunk.js.LICENSE.txt"
+    "static/js/2.5fb93447.chunk.js.LICENSE.txt": "/house-things/static/js/2.5fb93447.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.c744bfca.js",
-    "static/js/2.768a648e.chunk.js",
-    "static/js/main.ad894bf6.chunk.js"
+    "static/js/2.5fb93447.chunk.js",
+    "static/js/main.0f9df06c.chunk.js"
   ]
 }
