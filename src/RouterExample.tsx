@@ -1,16 +1,24 @@
-import React from "react";
-import { HashRouter as Router, Switch, Route, Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import {
+  HashRouter as Router,
+  Switch,
+  Route,
+  Link,
+  useParams,
+  useRouteMatch,
+} from "react-router-dom";
+import Cookie from "js-cookie";
 
-// This site has 3 pages, all of which are rendered
-// dynamically in the browser (not server rendered).
+// Since routes are regular React components, they
+// may be rendered anywhere in the app, including in
+// child elements.
 //
-// Although the page does not ever refresh, notice how
-// React Router keeps the URL up to date as you navigate
-// through the site. This preserves the browser history,
-// making sure things like the back button and bookmarks
-// work properly.
+// This helps when it's time to code-split your app
+// into multiple bundles because code-splitting a
+// React Router app is the same as code-splitting
+// any other React app.
 
-export default function BasicExample() {
+export default function NestingExample() {
   return (
     <Router>
       <div>
@@ -19,31 +27,18 @@ export default function BasicExample() {
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/dashboard">Dashboard</Link>
+            <Link to="/topics">Topics</Link>
           </li>
         </ul>
 
         <hr />
 
-        {/*
-          A <Switch> looks through all its children <Route>
-          elements and renders the first one whose path
-          matches the current URL. Use a <Switch> any time
-          you have multiple routes, but you want only one
-          of them to render at a time
-        */}
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/about">
-            <About />
-          </Route>
-          <Route path="/dashboard">
-            <Dashboard />
+          <Route path="/topics">
+            <Topics />
           </Route>
         </Switch>
       </div>
@@ -51,29 +46,86 @@ export default function BasicExample() {
   );
 }
 
-// You can think of these components as "pages"
-// in your app.
-
 function Home() {
+  const [posts, setPosts] = useState([]);
+  useEffect(() => {
+    (async () => {
+      const token = Cookie.get("token");
+      const baseUrl = "http://localhost:9000/.netlify/functions/api/things";
+      const params = { headers: { token } };
+      try {
+        const response = await fetch(baseUrl, params as any);
+        if (!response.ok) {
+          throw new Error("Sanya hui sosi");
+        }
+        const data = await response.json();
+        setPosts(data.map((post: { title: string }) => post.title));
+      } catch (error) {
+        console.log(error);
+        const token = prompt("Введите пароль");
+        if (!!token) {
+          Cookie.set("token", token);
+        }
+      }
+    })();
+  }, []);
   return (
     <div>
       <h2>Home</h2>
+      {posts.map((post) => (
+        <p key={post}>{post}</p>
+      ))}
     </div>
   );
 }
 
-function About() {
+function Topics() {
+  // The `path` lets us build <Route> paths that are
+  // relative to the parent route, while the `url` lets
+  // us build relative links.
+  let { path, url } = useRouteMatch();
+
   return (
     <div>
-      <h2>About</h2>
+      <h2>Topics</h2>
+      <ul>
+        <li>
+          <Link to={`${url}/rendering`}>Rendering with React</Link>
+        </li>
+        <li>
+          <Link to={`${url}/components`}>Components</Link>
+        </li>
+        <li>
+          <Link to={`${url}/props-v-state`}>Props v. State</Link>
+        </li>
+      </ul>
+
+      <Switch>
+        <Route exact path={path}>
+          <h3>Please select a topic.</h3>
+        </Route>
+        <Route path={`${path}/:topicId`}>
+          <Topic />
+        </Route>
+      </Switch>
     </div>
   );
 }
 
-function Dashboard() {
+interface topicId {
+  topicId: string;
+}
+
+function Topic() {
+  // The <Route> that rendered this component has a
+  // path of `/topics/:topicId`. The `:topicId` portion
+  // of the URL indicates a placeholder that we can
+  // get from `useParams()`.
+  let { topicId } = useParams<topicId>();
+
   return (
     <div>
-      <h2>Dashboard</h2>
+      <h3>{topicId}</h3>
     </div>
   );
 }

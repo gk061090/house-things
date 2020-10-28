@@ -1,12 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "./App";
-import RouterExample from "./RouterExample";
+// import App from "./App";
+// import RouterExample from "./RouterExample";
+import { Images } from "./Images";
 import * as serviceWorker from "./serviceWorker";
 
 ReactDOM.render(
   <React.StrictMode>
-    <RouterExample />
+    <Images />
   </React.StrictMode>,
   document.getElementById("root")
 );
